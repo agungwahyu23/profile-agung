@@ -1,0 +1,632 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Agung Wahyu</title>
+<meta name="description" content="Agung Wahyu, Software Engineer dan Web Developer. Aplikasi web dengan Laravel dan MySQL, RESTful API untuk aplikasi mobile dan payment gateway.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap">
+<style>
+  /* Layout: editorial single page. Each section pairs a narrow label column with a wide content column; the hero sets the headline against a plain fact ledger. */
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --ink: #252925;
+    --muted: #68716B;
+    --sage: #8FA697;
+    --forest: #30483D;
+    --on-forest: #FFFFFF;
+    --line: #E5E3DC;
+
+    --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2.5rem;
+    --space-5: 4rem;
+    --space-6: 6rem;
+    --radius: 4px;
+    --gutter: clamp(16px, 4vw, 40px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151915;
+      --surface: #1B201C;
+      --ink: #E8EBE5;
+      --muted: #9BA69E;
+      --sage: #8FA697;
+      --forest: #A9C2B2;
+      --on-forest: #16201A;
+      --line: #2B322D;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151915;
+    --surface: #1B201C;
+    --ink: #E8EBE5;
+    --muted: #9BA69E;
+    --sage: #8FA697;
+    --forest: #A9C2B2;
+    --on-forest: #16201A;
+    --line: #2B322D;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { width: 100%; max-width: 1080px; margin-inline: auto; padding-inline: var(--gutter); }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem var(--space-3);
+    padding-block: 0.75rem;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    text-decoration: none;
+    letter-spacing: 0.005em;
+  }
+  .site-nav { order: 3; flex-basis: 100%; }
+  .site-nav ul { display: flex; gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+  .site-nav a {
+    display: inline-block;
+    padding-block: 0.35rem;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .site-nav a:hover { color: var(--ink); border-bottom-color: var(--sage); }
+  .cv-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  a.cv-link:hover { border-color: var(--forest); }
+  .cv-link[aria-disabled="true"] { color: var(--muted); cursor: not-allowed; }
+  @media (min-width: 760px) {
+    .site-header .wrap { flex-wrap: nowrap; }
+    .site-nav { order: 0; flex-basis: auto; margin-left: auto; }
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.7rem 1.25rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+  .btn-primary { background: var(--forest); color: var(--on-forest); }
+  .btn-primary:hover { filter: brightness(1.12); }
+  .btn-primary:active { filter: brightness(0.95); }
+  .btn-quiet { border-color: var(--line); }
+  .btn-quiet:hover { border-color: var(--forest); }
+
+  /* Hero */
+  .hero { padding-block: var(--space-5) var(--space-5); }
+  .hero .wrap { display: grid; gap: var(--space-4); }
+  .eyebrow {
+    margin: 0 0 var(--space-3);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 6.2vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    max-width: 15ch;
+  }
+  .hero-lede { margin: var(--space-3) 0 0; max-width: 54ch; font-size: 1.0625rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); }
+  .hero-links { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); margin-top: var(--space-3); font-size: 0.9375rem; color: var(--muted); }
+  .hero-links a, .hero-links span { color: var(--muted); }
+  .hero-links a { text-decoration-color: var(--sage); text-underline-offset: 3px; }
+  .hero-links a:hover { color: var(--ink); }
+
+  .ledger { margin: 0; align-self: end; border-top: 2px solid var(--forest); }
+  .ledger div { display: grid; grid-template-columns: 7.5rem 1fr; gap: var(--space-2); padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+  .ledger dt { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .ledger dd { margin: 0; font-size: 0.9375rem; min-width: 0; }
+  .ledger dd small { display: block; color: var(--muted); font-size: 0.8125rem; }
+  @media (min-width: 860px) {
+    .hero { padding-block: var(--space-6) var(--space-6); }
+    .hero .wrap { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: var(--space-5); }
+  }
+
+  /* Sections */
+  .section { padding-block: var(--space-5); border-top: 1px solid var(--line); }
+  .section .wrap { display: grid; gap: var(--space-3); }
+  .section-head h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+  .section-head p { margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--muted); max-width: 26ch; }
+  .section-body { min-width: 0; }
+  @media (min-width: 860px) {
+    .section { padding-block: var(--space-6); }
+    .section .wrap { grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-5); }
+    .section-head { position: sticky; top: 5.5rem; align-self: start; }
+  }
+
+  /* About */
+  .prose { max-width: 62ch; }
+  .prose p { margin: 0 0 var(--space-2); }
+  .prose p:last-child { margin-bottom: 0; }
+  .approach { margin: var(--space-4) 0 0; padding: 0; list-style: none; max-width: 62ch; border-top: 1px solid var(--line); }
+  .approach li { display: grid; grid-template-columns: 8rem 1fr; gap: var(--space-2); padding: 0.85rem 0; border-bottom: 1px solid var(--line); font-size: 0.9375rem; }
+  .approach strong { font-weight: 600; }
+  .approach span { color: var(--muted); }
+  @media (max-width: 480px) { .approach li { grid-template-columns: 1fr; gap: 0.1rem; } }
+
+  /* Work */
+  .featured { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--space-3); }
+  @media (min-width: 640px) { .featured { padding: var(--space-4); } }
+  .project h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1.2; }
+  .featured h3 { font-size: clamp(1.75rem, 3.6vw, 2.25rem); }
+  .project .what { margin: 0.5rem 0 0; max-width: 56ch; }
+  .facts { margin: var(--space-3) 0 0; display: grid; gap: 0.4rem; font-size: 0.9375rem; }
+  .facts div { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--space-2); }
+  .facts dt { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .facts dd { margin: 0; min-width: 0; }
+  .facts .pending { color: var(--muted); }
+  .more { margin: var(--space-3) 0 0; padding: 0; list-style: none; }
+  .more li { padding-block: var(--space-3); border-bottom: 1px solid var(--line); }
+  .more li:first-child { border-top: 1px solid var(--line); }
+  .shot { margin: 0; aspect-ratio: 16 / 10; max-width: 100%; display: grid; place-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; color: var(--muted); font-size: 0.8125rem; letter-spacing: 0.04em; }
+  .shot .fallback { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: var(--space-2); text-align: center; }
+  .shot .fallback svg { width: 3.25rem; height: 3.25rem; fill: none; stroke: var(--forest); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .shot .fallback span { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+  .featured .shot .fallback svg { width: 4rem; height: 4rem; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .featured .shot { margin-bottom: var(--space-3); }
+  .project.row { display: grid; gap: var(--space-3); }
+  @media (min-width: 640px) {
+    .project.row { grid-template-columns: 240px minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+    .project.row .facts { margin-top: var(--space-2); }
+  }
+  .work-note { margin: var(--space-3) 0 0; max-width: 60ch; font-size: 0.875rem; color: var(--muted); }
+
+  /* Skills */
+  .skills { margin: 0; display: grid; }
+  .skills div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--space-2); padding: var(--space-2) 0; border-bottom: 1px solid var(--line); }
+  .skills div:first-child { border-top: 1px solid var(--line); }
+  .skills dt { font-weight: 600; font-size: 0.9375rem; }
+  .skills dd { margin: 0; }
+  .skills dd p { margin: 0; }
+  .skills dd .ctx { display: block; margin-top: 0.15rem; font-size: 0.875rem; color: var(--muted); }
+  @media (max-width: 560px) { .skills div { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+  /* Experience */
+  .roles { list-style: none; margin: 0; padding: 0; }
+  .roles li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--space-2); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+  .roles li:first-child { border-top: 1px solid var(--line); }
+  .roles .period { font-size: 0.875rem; color: var(--muted); padding-top: 0.2rem; }
+  .roles h3 { margin: 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.35; }
+  .roles .org { margin: 0.1rem 0 0; font-size: 0.9375rem; color: var(--muted); }
+  .roles .desc { margin: 0.5rem 0 0; max-width: 56ch; font-size: 0.9375rem; }
+  @media (max-width: 560px) { .roles li { grid-template-columns: 1fr; gap: 0.2rem; } .roles .period { order: 2; } }
+
+  /* Contact */
+  .contact-lede { margin: 0 0 var(--space-4); max-width: 22ch; font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.15; text-wrap: balance; }
+  .contact-list { margin: 0; display: grid; max-width: 36rem; }
+  .contact-list div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: var(--space-2); padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+  .contact-list div:first-child { border-top: 1px solid var(--line); }
+  .contact-list dt { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+  .contact-list dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+  .contact-list .pending { color: var(--muted); }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--line); padding-block: var(--space-4); font-size: 0.875rem; color: var(--muted); }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-1) var(--space-3); }
+  .site-footer p { margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+
+<!--
+  Untuk diisi sebelum publikasi:
+  1. Gambar proyek: ganti <div class="fallback">...</div> di dalam <figure class="shot"> dengan
+     <img src="..." alt="Deskripsi layar" width="1600" height="1000" loading="lazy">
+     Selama belum ada gambar, ikon dan label dipakai sebagai pengganti.
+  2. Bagian Contact: ganti tiga baris "Akan ditambahkan" dengan email, LinkedIn, dan GitHub aktif.
+  3. Experience: isi periode (kolom kiri) dan tambahkan nama organisasi jika boleh ditampilkan.
+-->
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="Agung Wahyu, kembali ke atas">Agung Wahyu</a>
+    <nav class="site-nav" aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="cv-link" href="https://drive.google.com/file/d/12CypaOWEYXSjEBBXzu4yCAZAQ4dqqtQO/view?usp=sharing"
+      target="_blank" rel="noopener noreferrer">Download CV</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Software Engineer · Web Developer</p>
+        <h1 id="hero-title">Building useful digital products with thoughtful engineering.</h1>
+        <p class="hero-lede">Saya Agung Wahyu. Lebih dari empat tahun saya membangun aplikasi web dengan Laravel dan
+          MySQL, dari perancangan skema database dan optimasi query sampai RESTful API untuk aplikasi mobile dan payment
+          gateway. Saya terbiasa menggali kebutuhan dan menjelaskan solusi teknis kepada pengguna non-teknis.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">View Selected Work</a>
+          <a class="btn btn-quiet" href="#contact">Get in Touch</a>
+        </div>
+        <p class="hero-links"><a
+            href="https://drive.google.com/file/d/12CypaOWEYXSjEBBXzu4yCAZAQ4dqqtQO/view?usp=sharing" target="_blank"
+            rel="noopener noreferrer">Download CV (Google Drive)</a></p>
+      </div>
+
+      <dl class="ledger" aria-label="Ringkasan profil">
+        <div>
+          <dt>Peran</dt>
+          <dd>Software Engineer, Web Developer</dd>
+        </div>
+        <div>
+          <dt>Pengalaman</dt>
+          <dd>Lebih dari 4 tahun</dd>
+        </div>
+        <div>
+          <dt>Stack utama</dt>
+          <dd>Laravel, MySQL</dd>
+        </div>
+        <div>
+          <dt>Pendidikan</dt>
+          <dd>D-IV Teknik Informatika<small>Sarjana Terapan, setara S1. IPK 3,85</small></dd>
+        </div>
+        <div>
+          <dt>Pernah dibangun</dt>
+          <dd>HRIS, pemesanan travel haji dan umrah, aplikasi internal pemerintahan</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">Selected Work</h2>
+        <p>Beberapa projek yang pernah saya kembangkan.</p>
+      </div>
+      <div class="section-body">
+        <article class="project featured">
+          <figure class="shot">
+            <!-- <div class="fallback"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" /></svg><span>HRIS · Absensi</span>
+            </div> -->
+            <img src="image-1.png" alt="" srcset="" style="object-fit: contain;">
+          </figure>
+          <h3>Ngabsen.id</h3>
+          <p class="what">Human Resource Information System (HRIS) untuk mengelola data dan proses kepegawaian di sisi
+            perusahaan.</p>
+          <dl class="facts">
+            <div>
+              <dt>Peran</dt>
+              <dd>Developer</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd class="">
+                Laravel, MySql, Bootstrap, Javascript, jQWidgets, Payment gateway
+              </dd>
+            </div>
+            <!-- <div>
+              <dt>Jobdesk</dt>
+              <dd class="">
+                - Mengembangkan fitur presensi, perizinan, penugasan, dll <br>
+                - Mengembangkan API untuk kebutuhan aplikasi mobile <br>
+                - Redesign dashboard admin <br>
+                - Bug fixing <br>
+              </dd>
+            </div> -->
+          </dl>
+        </article>
+
+        <ul class="more">
+          <li>
+            <article class="project row">
+              <figure class="shot">
+                <!-- <div class="fallback"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="4" y="8" width="16" height="11" rx="1.5" />
+                    <path d="M9 8V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v2M4 13h16" /></svg><span>Pemesanan
+                    perjalanan</span></div> -->
+                    <img src="image-2.png" alt="" srcset="" style="object-fit: contain;">
+              </figure>
+              <div>
+                <h3>Sistem pemesanan travel haji dan umrah</h3>
+                <p class="what">Aplikasi web untuk pemesanan paket perjalanan haji dan umrah.</p>
+                <dl class="facts">
+                  <div>
+                    <dt>Peran</dt>
+                    <dd>Developer</dd>
+                  </div>
+                  <div>
+                    <dt>Stack</dt>
+                    <dd class="">
+                      PHP Laravel, MySql, Bootstrap, Javascript
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="project row">
+              <figure class="shot">
+                <!-- <div class="fallback"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="4" y="8" width="16" height="11" rx="1.5" />
+                    <path d="M9 8V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v2M4 13h16" /></svg><span>Pemesanan
+                    perjalanan</span></div> -->
+                    <img src="image-4.jpg" alt="" srcset="" style="object-fit: contain;">
+              </figure>
+              <div>
+                <h3>Mitra Desa Digital</h3>
+                <p class="what">Aplikasi Web dan Mobile untuk pengelolaan penduduk desa, inventaris, dan surat-menyurat desa. Saya berperan mengerjakan perancangan ERD, frontend, backend, hingga API untuk mobile.</p>
+                <dl class="facts">
+                  <div>
+                    <dt>Peran</dt>
+                    <dd>Developer</dd>
+                  </div>
+                  <div>
+                    <dt>Stack</dt>
+                    <dd class="">
+                      Laravel, Codeigniter 3, MySql, Bootstrap, Javascript
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="project row">
+              <figure class="shot">
+                <div class="fallback"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 9l9-5 9 5H3zM5 20V10M9.5 20V10M14.5 20V10M19 20V10M3 20h18" /></svg><span>Sistem
+                    internal</span></div>
+              </figure>
+              <div>
+                <h3>Aplikasi internal pemerintahan</h3>
+                <p class="what">Aplikasi untuk kebutuhan internal instansi pemerintah. Karena sifatnya internal, nama
+                  instansi dan detail sistem tidak ditampilkan.</p>
+                <dl class="facts">
+                  <div>
+                    <dt>Peran</dt>
+                    <dd>Tenaga Ahli Programmer</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <!-- <p class="work-note">Screenshot, tautan demo, dan hasil terukur akan ditambahkan setelah ada izin publikasi dari pemilik masing-masing sistem.</p> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-title">About</h2>
+      </div>
+      <div class="section-body">
+        <div class="prose">
+          <p>Saya lulusan D-IV Teknik Informatika dengan IPK 3,85. Pekerjaan saya berpusat pada aplikasi web berbasis
+            database: merancang skema, menulis query yang cepat, dan membuka data lewat RESTful API untuk aplikasi
+            mobile serta integrasi payment gateway.</p>
+          <p>Pernah menjadi Tenaga Ahli Programmer untuk aplikasi di lingkup internal pemerintahan. Saya juga pernah
+            mengajar pemrograman web, jadi menjelaskan hal teknis kepada orang yang tidak berlatar teknis sudah menjadi
+            kebiasaan kerja.</p>
+        </div>
+        <ul class="approach" aria-label="Cara bekerja">
+          <li><strong>Memahami</strong><span>Menganalisa kebutuhan bersama pengguna sebelum menulis kode.</span></li>
+          <li><strong>Merancang</strong><span>Skema database dan alur data lebih dulu, karena keduanya paling mahal
+              diubah belakangan.</span></li>
+          <li><strong>Membangun</strong><span>Aplikasi Laravel dengan query yang dioptimasi dan API yang jelas bagi
+              pemakainya.</span></li>
+          <li><strong>Menjelaskan</strong><span>Solusi teknis disampaikan dengan bahasa yang bisa dipahami pengguna
+              non-teknis.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="skills-title">Technologies</h2>
+        <p>Dikelompokkan menurut fungsi.</p>
+      </div>
+      <div class="section-body">
+        <dl class="skills">
+          <div>
+            <dt>Backend</dt>
+            <dd>
+              <p>Laravel, PHP, CodeIgniter 3, Go (Golang), RESTful API</p><span class="ctx">Aplikasi web, dari sistem kepegawaian sampai pemesanan.</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Frontend</dt>
+            <dd>
+              <p>HTML, CSS, JavaScript, jQuery, Bootstrap, Vue.js</p><span class="ctx">Aplikasi web, dari sistem kepegawaian sampai pemesanan.</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Database</dt>
+            <dd>
+              <p>MySQL, desain skema, penulisan query SQL, tuning performa</p><span class="ctx">Perancangan skema database dan optimasi query.</span>
+            </dd>
+          </div>
+          <div>
+            <dt>API &amp; integrasi</dt>
+            <dd>
+              <p>RESTful API, payment gateway</p><span class="ctx">API untuk aplikasi mobile dan integrasi
+                pembayaran.</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Kerja bersama</dt>
+            <dd>
+              <p>Analisis kebutuhan, komunikasi dengan pengguna non-teknis, pengajaran pemrograman web</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="exp-title">Experience</h2>
+      </div>
+      <div class="section-body">
+        <ol class="roles">
+          <li>
+            <span class="period">Agustus 2025 – Sekarang</span>
+            <div>
+              <h3>Tenaga Ahli Programmer</h3>
+              <p class="org">Lingkup internal pemerintahan</p>
+              <p class="desc">Mengembangkan aplikasi internal instansi pemerintah.</p>
+            </div>
+          </li>
+          <li>
+            <span class="period">April 2024 – April 2026</span>
+            <div>
+              <h3>Tentor Pemrograman Web, Creative Media Surabaya</h3>
+              <p class="desc">Memberikan pelatihan privat dan kelas reguler dalam pemrograman web dasar hingga lanjutan menggunakan PHP dan MySQL. Membimbing siswa dalam membangun aplikasi web dan memahami konsep dasar pemrograman.</p>
+            </div>
+          </li>
+          <li>
+            <span class="period">Agustus 2022 – Januari 2024</span>
+            <div>
+              <h3>Software Engineer, PT Xeno Persada Teknologi</h3>
+              <p class="org">Travel Haji Umroh</p>
+              <p class="desc">Mengembangkan pemesanan pada travel haji umroh.</p> <br>
+              <p class="org">Ragasport</p>
+              <p class="desc">Mengembangkan pemesanan venue sport center.</p> <br>
+              <p class="org">Ngabsen.id</p>
+              <p class="desc">Mengembangkan sistem HRIS Ngabsen.id.</p>
+            </div>
+          </li>
+          <li>
+            <span class="period">Agustus 2022 – Desember 2022</span>
+            <div>
+              <h3>Fullstack Developer, PT Mitra Desa Digital</h3>
+              <p class="desc">- Merancang struktur database sistem informasi desa (data penduduk, surat, inventaris).</p>
+              <p class="desc">- Membangun	backend	dan	RESTful	API	menggunakan	Laravel	& CodeIgniter 3.</p>
+              <p class="desc">- Bekerja sama dengan tim dalam proses pengembangan dan deployment sistem, hingga akhirnya aplikasi berhasil digunakan oleh lebih dari 3 desa di wilayah Jawa Timur untuk mendukung digitalisasi layanan publik.</p>
+            </div>
+          </li>
+          <li>
+            <span class="period">2021 – 2024</span>
+            <div>
+              <h3>Freelance Web Developer</h3>
+              <p class="desc">- Menangani berbagai proyek website seperti edutaraka.com, tomokoyuki.com, dan mesinkopijember.com , sesuai kebutuhan klien lintas industri..</p>
+              <p class="desc">- Bertanggung jawab penuh atas desain database, pengembangan frontend dan backend, serta penerapan prinsip UI/UX untuk meningkatkan kenyamanan dan fungsionalitas pengguna.</p>
+              <p class="desc">- Menggunakan teknologi CodeIgniter 3, Laravel, MySQL, dan Bootstrap dalam mengembangkan solusi web yang ringan, efisien, dan responsif.</p>
+              <p class="desc">- Seluruh proyek berhasil online tepat waktu dengan hasil akhir yang sesuai permintaan klien, serta mendapat feedback positif dari pengguna akhir.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="contact-title">Contact</h2>
+      </div>
+      <div class="section-body">
+        <p class="contact-lede">Have a project in mind or a role that might be a fit? Let’s talk.</p>
+        <dl class="contact-list">
+          <div>
+            <dt>Email</dt>
+            <dd class="pending">agungwahyu23699@gmail.com</dd>
+          </div>
+          <div>
+            <dt>LinkedIn</dt>
+            <dd class="pending">
+              <a href="www.linkedin.com/in/agung-wahyu-509690183" style="text-decoration: none;">www.linkedin.com/in/agung-wahyu-509690183</a>
+            </dd>
+          </div>
+          <div>
+            <dt>GitHub</dt>
+            <dd class="pending">
+              <a href="https://github.com/agungwahyu23" style="text-decoration: none;">https://github.com/agungwahyu23</a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Agung Wahyu</p>
+  </div>
+</footer>
+
+</body>
+
+</html>
